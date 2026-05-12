@@ -1819,3 +1819,58 @@ header {
     opacity: 0.15;
 }
 
+@media (max-width: 768px) {
+    /* 1. Adjust Hero Height & Padding */
+    .hero {
+        padding: 60px 15px; /* Reduced padding for smaller screens */
+        min-height: 80vh;   /* Slightly shorter height so user can see more content */
+    }
+
+    /* 2. Scale Down the Typography */
+    .hero h1 {
+        font-size: 2.2rem !important; /* Significantly smaller but still bold */
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 1rem !important;
+        padding: 0 10px;
+        line-height: 1.5;
+    }
+
+    /* 3. Stack the Buttons Vertically */
+    .cta-group {
+        flex-direction: column; /* Buttons stack on top of each other */
+        width: 100%;
+        max-width: 300px; /* Keeps buttons from stretching too wide */
+        margin: 0 auto;
+        gap: 12px;
+    }
+
+    .btn-primary, .btn-whatsapp {
+        width: 100%; /* Full width buttons are easier to tap with thumbs */
+        margin: 0 !important;
+        padding: 15px;
+        justify-content: center;
+    }
+
+    /* 4. Adjust the Stats Bar */
+    .hero-stats {
+        flex-direction: column; /* Stack 50+ and Bulk Hiring */
+        gap: 15px;
+        padding: 15px 20px;
+        width: 90%;
+    }
+
+    .stat-separator {
+        width: 60%; /* Change line from vertical to horizontal */
+        height: 1px;
+        margin: 5px auto;
+    }
+
+    /* 5. Ensure Video Behaves */
+    .hero-video {
+        object-position: center; /* Ensures the most important part of video stays visible */
+    }
+}
