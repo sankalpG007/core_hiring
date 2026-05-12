@@ -1635,3 +1635,186 @@ header {
     background: var(--primary);
     color: #fff;
 }
+
+.job-description {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.jd-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.jd-card {
+    padding: 35px;
+    border-radius: 20px;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.jd-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.jd-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.jd-header i {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.jd-header h3 {
+    font-size: 1.3rem;
+    color: #1e293b;
+    margin: 0;
+}
+
+.jd-list {
+    list-style: none;
+    padding: 0;
+}
+
+.jd-list li {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.jd-list li i {
+    color: #22c55e; /* Green checkmark */
+    margin-top: 5px;
+    font-size: 0.8rem;
+}
+
+.highlighted-jd {
+    background: rgba(243, 112, 33, 0.02);
+    border: 1px dashed var(--primary);
+}
+
+/* Department Theme Colors */
+.mechanical-theme { --jd-color: #3b82f6; }
+.electrical-theme { --jd-color: #06b6d4; }
+.requirements-theme { --jd-color: #f37021; }
+
+.interactive-jd {
+    padding: 100px 0;
+    background: #fcfcfc;
+}
+
+.section-header-centered {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.title-underline {
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+.jd-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.jd-item {
+    background: #fff;
+    border-radius: 25px;
+    padding: 40px;
+    position: relative;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Hover Interaction */
+.jd-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--jd-color);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.jd-icon-circle {
+    width: 70px;
+    height: 70px;
+    background: rgba(var(--jd-color), 0.1);
+    background-color: var(--jd-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    transition: 0.3s;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.jd-item:hover .jd-icon-circle {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.jd-content h3 {
+    font-size: 1.4rem;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.jd-list-styled {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.jd-list-styled li {
+    margin-bottom: 12px;
+    color: #64748b;
+    font-size: 0.95rem;
+    display: flex;
+    gap: 12px;
+}
+
+.jd-list-styled li::before {
+    content: "→";
+    color: var(--jd-color);
+    font-weight: bold;
+}
+
+/* Background Glow Effect on Hover */
+.hover-accent {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: var(--jd-color);
+    filter: blur(80px);
+    opacity: 0;
+    transition: 0.4s;
+    pointer-events: none;
+}
+
+.jd-item:hover .hover-accent {
+    opacity: 0.15;
+}
