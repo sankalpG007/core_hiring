@@ -1874,3 +1874,60 @@ header {
         object-position: center; /* Ensures the most important part of video stays visible */
     }
 }
+
+.company-grid {
+    display: grid;
+    /* Reduced from 180px to 160px to accommodate the 6th card in one row */
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+    gap: 12px; 
+    position: relative;
+    z-index: 2;
+}
+
+/* Ensure font sizes stay compact for 6 columns */
+.company-card h3 {
+    font-size: 0.95rem; 
+}
+
+.company-card p {
+    font-size: 0.75rem;
+}
+
+.company-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the cards if they wrap to a new line */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.company-card {
+    flex: 1 1 calc(25% - 20px); /* Tries to fit 4 per row */
+    min-width: 220px; /* Ensures they don't get too small */
+    max-width: 280px; /* Ensures they don't get too wide */
+    /* ... keep your existing card styles (background, padding, etc.) ... */
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 768px) {
+    .company-card {
+        flex: 1 1 calc(50% - 20px); /* 2 per row on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .company-card {
+        flex: 1 1 100%; /* 1 per row on small phones */
+    }
+}
