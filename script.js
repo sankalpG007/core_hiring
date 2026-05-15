@@ -19,35 +19,42 @@ const msg = document.getElementById('responseMessage');
 form.addEventListener('submit', e => {
     e.preventDefault();
     
-    // UI Update
+    // 1. UI Loading State
     btn.disabled = true;
-    btn.innerHTML = "Submitting... <i class='fas fa-spinner fa-spin'></i>";
+    btn.innerHTML = "Processing... <i class='fas fa-spinner fa-spin'></i>";
 
-    // Use FormData to capture all inputs
     const formData = new FormData(form);
 
     fetch(scriptURL, { 
         method: 'POST', 
         body: formData,
-        mode: 'no-cors' // This prevents the "CORS Error" common with Google Scripts
+        mode: 'no-cors' 
     })
     .then(() => {
-        // Since we use 'no-cors', we assume success if the fetch completes
-        msg.innerHTML = "Registration Successful! See you at the drive.";
-        msg.style.display = "block";
-        msg.style.color = "#22c55e"; // Green color
-        form.reset();
+        // 2. Hide the form and show a professional Success Message
+        form.style.display = "none"; 
         
-        // Reset button
-        btn.disabled = false;
-        btn.innerHTML = "Confirm Registration <i class='fas fa-arrow-right'></i>";
+        msg.innerHTML = `
+            <div class="success-container">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h3>Registration Successful!</h3>
+                <p>Your details have been recorded for the 2026 Drive.</p>
+                <div class="next-steps">
+                    <span><strong>Next Step:</strong> Join the WhatsApp group for live updates.</span>
+                </div>
+                <button onclick="window.location.reload()" class="btn-reload">Register Another Candidate</button>
+            </div>
+        `;
         
-        // Hide the experience year field if it was open
-        document.getElementById('expYearGroup').classList.add('hidden');
+        msg.classList.remove('hidden'); // Remove the hidden class
+        msg.style.display = "block";    // Force display
+        
+        // 3. Smooth scroll to the success message
+        msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
     })
     .catch(error => {
         console.error('Error!', error.message);
-        alert("Something went wrong. Please try again.");
+        alert("Submission failed. Please check your connection.");
         btn.disabled = false;
         btn.innerHTML = "Confirm Registration <i class='fas fa-arrow-right'></i>";
     });
