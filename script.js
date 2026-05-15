@@ -11,29 +11,46 @@ expSelect.addEventListener('change', () => {
 });
 
 // Form Submission to Google Sheets
-const scriptURL = 'https://script.google.com/macros/s/AKfycby3vRAqpam8kvq-37clztUNI73hJ7FPO5lIo9RVW4SC2kuVwkjtidA2aA8DqRhmuMKj-w/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbz1pyPtVGg4syy415fwu1P4fPk3lAM2xCPbZYLaMEK6MCL7c_m_uvKMZpArjAvpEEzczg/exec';
 const form = document.getElementById('hiringForm');
 const btn = document.getElementById('submitBtn');
 const msg = document.getElementById('responseMessage');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
+    
+    // UI Update
     btn.disabled = true;
-    btn.innerText = "Submitting...";
+    btn.innerHTML = "Submitting... <i class='fas fa-spinner fa-spin'></i>";
 
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-            msg.innerHTML = "Application Sent Successfully!";
-            msg.className = "success";
-            form.reset();
-            btn.disabled = false;
-            btn.innerText = "Submit Application";
-        })
-        .catch(error => {
-            console.error('Error!', error.message);
-            btn.disabled = false;
-            btn.innerText = "Submit Application";
-        });
+    // Use FormData to capture all inputs
+    const formData = new FormData(form);
+
+    fetch(scriptURL, { 
+        method: 'POST', 
+        body: formData,
+        mode: 'no-cors' // This prevents the "CORS Error" common with Google Scripts
+    })
+    .then(() => {
+        // Since we use 'no-cors', we assume success if the fetch completes
+        msg.innerHTML = "Registration Successful! See you at the drive.";
+        msg.style.display = "block";
+        msg.style.color = "#22c55e"; // Green color
+        form.reset();
+        
+        // Reset button
+        btn.disabled = false;
+        btn.innerHTML = "Confirm Registration <i class='fas fa-arrow-right'></i>";
+        
+        // Hide the experience year field if it was open
+        document.getElementById('expYearGroup').classList.add('hidden');
+    })
+    .catch(error => {
+        console.error('Error!', error.message);
+        alert("Something went wrong. Please try again.");
+        btn.disabled = false;
+        btn.innerHTML = "Confirm Registration <i class='fas fa-arrow-right'></i>";
+    });
 });
 
 const jdData = {

@@ -142,7 +142,7 @@
         <div class="section-header-centered">
             <h2 class="section-title">Job Responsibilities</h2>
             <div class="title-underline"></div>
-            <p class="section-subtitle">Find your department and explore your potential role</p>
+            <p class="section-subtitle">Find your Department and explore your potential role</p>
         </div>
 
         <div class="jd-wrapper">
@@ -209,21 +209,19 @@
             </div>
             
             <form id="hiringForm" class="styled-form">
-                <div class="input-row">
-                    <div class="input-group">
-                        <label><i class="fas fa-user"></i> Full Name</label>
-                        <input type="text" name="name" required placeholder="Your Name">
-                    </div>
+                <div class="input-group">
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" name="Name" required placeholder="Your Name">
                 </div>
 
                 <div class="grid">
                     <div class="input-group">
                         <label><i class="fas fa-university"></i> College Name</label>
-                        <input type="text" name="college" required placeholder="Your College Name">
+                        <input type="text" name="College" required placeholder="Your College Name">
                     </div>
                     <div class="input-group">
                         <label><i class="fas fa-graduation-cap"></i> Current Year</label>
-                        <select name="year" required>
+                        <select name="Year" required>
                             <option value="" disabled selected>Select Year</option>
                             <option value="Final Year">Final Year Pursuing</option>
                             <option value="Pass Out">Pass Out</option>
@@ -233,20 +231,20 @@
 
                 <div class="input-group">
                     <label><i class="fas fa-briefcase"></i> Department Name</label>
-                    <input type="text" name="department" placeholder="e.g. Mechanical Engineering" required>
+                    <input type="text" name="Department" placeholder="e.g. Mechanical Engineering" required>
                 </div>
 
                 <div class="grid">
                     <div class="input-group">
                         <label><i class="fas fa-history"></i> Experience Status</label>
-                        <select name="experience" id="expSelect" required>
+                        <select name="Experience" id="expSelect" required>
                             <option value="Fresher">Fresher</option>
                             <option value="Experienced">Experienced</option>
                         </select>
                     </div>
                     <div id="expYearGroup" class="input-group hidden">
                         <label>Years of Experience</label>
-                        <input type="number" name="exp_years" placeholder="0">
+                        <input type="number" name="Exp_years" placeholder="0" value="0">
                     </div>
                 </div>
 
@@ -254,11 +252,11 @@
                     <p class="group-title">Education Status</p>
                     <div class="checkbox-row">
                         <label class="custom-check">
-                            <input type="checkbox" name="pursuing_eng"> 
+                            <input type="checkbox" name="Pursuing_eng" value="Yes"> 
                             <span class="checkmark"></span> Pursuing Engineering
                         </label>
                         <label class="custom-check">
-                            <input type="checkbox" name="pursuing_dip"> 
+                            <input type="checkbox" name="Pursuing_dip" value="Yes"> 
                             <span class="checkmark"></span> Pursuing Diploma
                         </label>
                     </div>
@@ -268,13 +266,24 @@
                     <p class="group-title">Ready to Relocate to Pune Immediately?</p>
                     <div class="radio-row">
                         <label class="custom-radio">
-                            <input type="radio" name="relocate" value="Yes" required>
+                            <input type="radio" name="Relocate" value="Yes" required>
                             <span class="radio-mark"></span> Yes
                         </label>
                         <label class="custom-radio">
-                            <input type="radio" name="relocate" value="No">
+                            <input type="radio" name="Relocate" value="No">
                             <span class="radio-mark"></span> No
                         </label>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="input-group">
+                        <label><i class="fas fa-phone"></i> Contact Number</label>
+                        <input type="tel" name="Phone" required placeholder="10-digit number">
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" name="Email" required placeholder="your@email.com">
                     </div>
                 </div>
 
@@ -287,7 +296,6 @@
         </div>
     </div>
 </section>
-
     <footer class="main-footer">
     <div class="container footer-grid">
         <div class="footer-block venue-info">
